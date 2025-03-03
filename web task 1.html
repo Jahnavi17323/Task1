@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Navigation Menu</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 2000px; /* Enables scrolling to test effects */
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            z-index: 1000;
+        }
+
+        /* Navbar Links */
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            margin: 0 10px;
+            font-size: 18px;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+            border-radius: 5px;
+        }
+
+        /* Hover Effect */
+        .navbar a:hover {
+            background-color: #ffcc00;
+            color: black;
+            transform: scale(1.1);
+        }
+
+        /* Scroll Effect */
+        .scrolled {
+            background-color: #222 !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Content Sections for testing */
+        .section {
+            padding: 100px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        #home { background: lightcoral; }
+        #about { background: lightblue; }
+        #services { background: lightgreen; }
+        #contact { background: lightgray; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Page Sections -->
+    <div id="home" class="section">Home Section</div>
+    <div id="about" class="section">About Section</div>
+    <div id="services" class="section">Services Section</div>
+    <div id="contact" class="section">Contact Section</div>
+
+    <script>
+        // Add 'scrolled' class to navbar when user scrolls down
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>
